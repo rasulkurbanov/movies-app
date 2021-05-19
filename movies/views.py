@@ -1,9 +1,13 @@
+from movies.models import Genres, Movie
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 
 
 def index(request):
-    return HttpResponse("Hello World, You are at my first django project")
+    movies = Movie.objects.all()
+    output = ', '.join([m.title for m in movies])
+    # return HttpResponse("Hello World, You are at my first django project")
+    return HttpResponse(output)
 
 
