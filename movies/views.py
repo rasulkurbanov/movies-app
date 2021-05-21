@@ -6,8 +6,7 @@ from django.http import HttpResponse
 
 def index(request):
     movies = Movie.objects.all()
-    output = ', '.join([m.title for m in movies])
+    # output = ', '.join([m.title for m in movies])
     # return HttpResponse("Hello World, You are at my first django project")
-    return HttpResponse(output)
-
-
+    # return HttpResponse(output)
+    return render(request, 'movies/base.html', { 'movies': movies })
